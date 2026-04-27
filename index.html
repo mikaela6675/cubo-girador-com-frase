@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Quadrados normais - animação subindo mais lenta com mudança de cor */
+        .quadrado {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            pointer-events: none;
+            animation: subirMudarCor 15s linear infinite;
+        }
+
+        /* Quadrados com rotação - sobem e giram devagar mais lentos */
+        .quadrado-giratorio {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            pointer-events: none;
+            animation: subirMudarCorGirar 15s linear infinite;
+        }
+
+        @keyframes subirMudarCor {
+            0% {
+                transform: translateY(100vh);
+                background-color: #ffffff;
+            }
+            50% {
+                background-color: #aaaaaa;
+            }
+            100% {
+                transform: translateY(-100vh);
+                background-color: #555555;
+            }
+        }
+
+        @keyframes subirMudarCorGirar {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                background-color: #ffffff;
+            }
+            50% {
+                background-color: #aaaaaa;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                background-color: #555555;
+            }
+        }
+
+        /* Container do texto - centralizado e fixo com fundo transparente */
+        .container {
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            background-color: transparent;
+        }
+
+        .linha-topo {
+            width: 100%;
+            height: 4px;
+            background-color: white;
+            margin-bottom: 8px;
+        }
+
+        .linha-base {
+            width: 100%;
+            height: 4px;
+            background-color: white;
+            margin-top: 8px;
+        }
+
+        .center-text {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <!-- Quadrados normais (sem rotação) mais lentos -->
+    <div class="quadrado" style="left: 8%; animation-delay: 0s;"></div>
+    <div class="quadrado" style="left: 85%; animation-delay: 2s;"></div>
+    <div class="quadrado" style="left: 75%; animation-delay: 6s;"></div>
+    <div class="quadrado" style="left: 20%; animation-delay: 1.5s;"></div>
+    <div class="quadrado" style="left: 92%; animation-delay: 3s;"></div>
+    <div class="quadrado" style="left: 70%; animation-delay: 10s;"></div>
+    <div class="quadrado" style="left: 15%; animation-delay: 5s;"></div>
+    <div class="quadrado" style="left: 90%; animation-delay: 1s;"></div>
+
+    <!-- Quadrados giratórios (giram bem devagar conforme sobem) mais lentos -->
+    <div class="quadrado-giratorio" style="left: 12%; animation-delay: 4s;"></div>
+    <div class="quadrado-giratorio" style="left: 45%; animation-delay: 5.5s;"></div>
+    <div class="quadrado-giratorio" style="left: 60%; animation-delay: 8s;"></div>
+    <div class="quadrado-giratorio" style="left: 33%; animation-delay: 7s;"></div>
+    <div class="quadrado-giratorio" style="left: 50%; animation-delay: 3s;"></div>
+    <div class="quadrado-giratorio" style="left: 55%; animation-delay: 9s;"></div>
+    <div class="quadrado-giratorio" style="left: 38%; animation-delay: 11s;"></div>
+
+    <div class="container">
+        <div class="linha-topo"></div>
+        <div class="center-text">
+            BACKGROUND ANIMATION
+        </div>
+        <div class="linha-base"></div>
+    </div>
+</body>
+</html>
